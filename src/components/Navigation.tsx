@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import MobileNavigation from "./MobileNavigation";
+import Link from "next/link";
 
 // Основная функция компонента навигации
 export function Navigation() {
@@ -58,10 +59,13 @@ export function Navigation() {
             ))}
             {/* Кнопка для скачивания резюме */}
             <Button
+              asChild
               variant="outline"
-              className="animate-glow bg-transparent cursor-pointer"
+              className=" bg-transparent cursor-pointer"
             >
-              Download CV
+              <a href="/CV%20-%20Vitaliy%20Posvistak.pdf" download>
+                Скачать CV
+              </a>
             </Button>
           </div>
 

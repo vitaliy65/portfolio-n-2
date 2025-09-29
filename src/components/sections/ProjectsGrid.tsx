@@ -100,6 +100,38 @@ export function ProjectsGrid() {
                     </div>
                   </div>
                 </div>
+
+                <div className="xl:hidden flex items-center justify-center space-x-4 px-6">
+                  <Button
+                    size="sm"
+                    variant="secondary"
+                    asChild
+                    className="flex flex-1"
+                  >
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </a>
+                  </Button>
+                  <Button
+                    size="sm"
+                    asChild
+                    className="bg-red-700 text-white hover:bg-red-900 flex flex-1"
+                  >
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      Live
+                    </a>
+                  </Button>
+                </div>
               </Card>
             </motion.div>
           ))}

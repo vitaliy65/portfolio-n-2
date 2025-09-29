@@ -50,11 +50,14 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button size="lg" className="animate-glow text-white">
-              View My Work
+            <Button
+              size="lg"
+              className="animate-glow text-white cursor-pointer"
+            >
+              <a href="#projects">View My Work</a>
             </Button>
-            <Button variant="outline" size="lg">
-              Get In Touch
+            <Button variant="outline" size="lg" className="cursor-pointer">
+              <a href="#contact">Get In Touch</a>
             </Button>
           </motion.div>
 
