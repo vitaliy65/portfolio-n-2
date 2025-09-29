@@ -1,6 +1,6 @@
 import { HeroSection } from "@/components/sections/Hero";
 import { AboutSection } from "@/components/sections/About";
-// import { SkillsCarousel } from "@/components/skills-carousel";
+import { SkillsCarousel } from "@/components/sections/SkillsCarousel";
 // import { ProjectsGrid } from "@/components/projects-grid";
 // import { ExperienceTimeline } from "@/components/experience-timeline";
 // import { ContactSection } from "@/components/contact-section";
@@ -17,10 +17,10 @@ export default function Home() {
       <div className="relative z-10">
         <HeroSection />
         <AboutSection />
-        {/* <SkillsCarousel />
-        <ProjectsGrid />
-        <ExperienceTimeline />
-        <ContactSection /> */}
+        <SkillsCarousel />
+        {/* <ProjectsGrid /> */}
+        {/* <ExperienceTimeline /> */}
+        {/* <ContactSection /> */}
       </div>
     </main>
   );
