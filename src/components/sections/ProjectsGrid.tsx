@@ -38,7 +38,7 @@ export function ProjectsGrid() {
               whileHover={{ y: -10 }}
               className="flex group h-full"
             >
-              <Card className="flex overflow-hidden glass-effect hover:bg-card/50 transition-all duration-300 h-full">
+              <Card className="flex overflow-hidden glass-effect transition-all duration-300 h-full">
                 <div className="flex relative overflow-hidden w-full aspect-2/1">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -92,7 +92,7 @@ export function ProjectsGrid() {
                         <Badge
                           key={tag}
                           variant="secondary"
-                          className="text-xs bg-blue-800/50"
+                          className="text-xs "
                         >
                           {tag}
                         </Badge>

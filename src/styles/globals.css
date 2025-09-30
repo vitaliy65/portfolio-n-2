@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant autumn (&:is(.autumn *));
 
 :root {
   --radius: 0.65rem;
@@ -36,6 +37,18 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.623 0.214 259.815);
+
+  /* Кастомные переменные для кастомных классов */
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --gradient-start: #70c0ff;
+  --gradient-middle: #a855f7;
+  --gradient-end: #ec4899;
+  --mesh-1: rgba(120, 119, 198, 0.3);
+  --mesh-2: rgba(255, 119, 198, 0.3);
+  --mesh-3: rgba(120, 200, 255, 0.3);
+
+  /* Новая переменная для карточки при наведении */
+  --card-hover: oklch(0.97 0.01 285.823);
 }
 
 .dark {
@@ -70,6 +83,73 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.488 0.243 264.376);
+
+  /* Кастомные переменные для кастомных классов (тёмная тема) */
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --gradient-start: #70c0ff;
+  --gradient-middle: #a855f7;
+  --gradient-end: #ec4899;
+  --mesh-1: rgba(120, 119, 198, 0.15);
+  --mesh-2: rgba(255, 119, 198, 0.18);
+  --mesh-3: rgba(120, 200, 255, 0.18);
+
+  /* Новая переменная для карточки при наведении (тёмная тема) */
+  --card-hover: oklch(0.28 0.01 285.885);
+}
+
+/* Тема autumn */
+.autumn {
+  --background: #fff;
+  --foreground: #826b5d;
+  --card: #fff7f0; /* Сделал карточки чуть теплее и светлее */
+  --card-foreground: #7a4a1b; /* Более контрастный текст на карточках */
+  --popover: #fff;
+  --popover-foreground: #826b5d;
+  --primary: #d49a6a;
+  --primary-foreground: #fff;
+  --secondary: #dabdad;
+  --secondary-foreground: #8d0327;
+  --muted: #dabdad;
+  --muted-foreground: #826b5d;
+  --accent: #d85251;
+  --accent-foreground: #fff;
+  --destructive: #8d0327;
+  --border: #d49a6a; /* Более насыщенная граница для карточек */
+  --input: #dabdad;
+  --ring: #d49a6a;
+  --chart-1: #d49a6a;
+  --chart-2: #d85251;
+  --chart-3: #826b5d;
+  --chart-4: #dabdad;
+  --chart-5: #8d0327;
+  --sidebar: #fff;
+  --sidebar-foreground: #826b5d;
+  --sidebar-primary: #d49a6a;
+  --sidebar-primary-foreground: #fff;
+  --sidebar-accent: #d85251;
+  --sidebar-accent-foreground: #fff;
+  --sidebar-border: #dabdad;
+  --sidebar-ring: #d49a6a;
+
+  /* Кастомные переменные для кастомных классов (autumn) */
+  --glass-border: rgba(
+    212,
+    154,
+    106,
+    0.25
+  ); /* Более заметная граница для эффекта glass */
+  --gradient-start: #d49a6a;
+  --gradient-middle: #dabdad;
+  --gradient-end: #d85251;
+  --mesh-1: rgba(212, 154, 106, 0.22); /* Сделал mesh чуть ярче */
+  --mesh-2: rgba(216, 82, 81, 0.22);
+  --mesh-3: rgba(130, 107, 93, 0.22);
+  /* Добавим лёгкую тень для карточек через кастомную переменную */
+  --card-shadow: 0 4px 32px 0 rgba(212, 154, 106, 0.12),
+    0 1.5px 6px 0 rgba(216, 82, 81, 0.08);
+
+  /* Новая переменная для карточки при наведении (autumn) */
+  --card-hover: #ffe3c2;
 }
 
 @theme inline {
@@ -111,6 +191,18 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Кастомные переменные для кастомных классов */
+  --color-glass-border: var(--glass-border);
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-middle: var(--gradient-middle);
+  --color-gradient-end: var(--gradient-end);
+  --color-mesh-1: var(--mesh-1);
+  --color-mesh-2: var(--mesh-2);
+  --color-mesh-3: var(--mesh-3);
+
+  /* Новая переменная для карточки при наведении */
+  --color-card-hover: var(--card-hover);
 }
 
 @layer base {
@@ -122,7 +214,7 @@
   }
 }
 
-/* Added custom animations and effects */
+/* Анимации */
 @keyframes float {
   0%,
   100% {
@@ -181,13 +273,19 @@
   animation: fadeInScale 0.5s ease-out;
 }
 
+/* Кастомные классы с поддержкой тем */
 .glass-effect {
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-glass-border, rgba(255, 255, 255, 0.1));
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #70c0ff, #a855f7, #ec4899);
+  background: linear-gradient(
+    135deg,
+    var(--color-gradient-start, #70c0ff),
+    var(--color-gradient-middle, #a855f7),
+    var(--color-gradient-end, #ec4899)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -196,17 +294,26 @@
 .mesh-gradient {
   background: radial-gradient(
       circle at 20% 80%,
-      rgba(120, 119, 198, 0.3) 0%,
+      var(--color-mesh-1, rgba(120, 119, 198, 0.3)) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 80% 20%,
-      rgba(255, 119, 198, 0.3) 0%,
+      var(--color-mesh-2, rgba(255, 119, 198, 0.3)) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 40% 40%,
-      rgba(120, 200, 255, 0.3) 0%,
+      var(--color-mesh-3, rgba(120, 200, 255, 0.3)) 0%,
       transparent 50%
     );
+}
+
+/* Эффект наведения для карточек с поддержкой кастомной переменной цвета.
+   Используйте этот стиль для hover-эффекта карточек! */
+[data-slot="card"]:hover,
+.card-hover,
+[data-card]:hover {
+  background: var(--color-card-hover, #f5f5f5) !important;
+  transition: background 0.3s;
 }

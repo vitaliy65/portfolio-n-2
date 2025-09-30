@@ -33,6 +33,6 @@ export const projects = [
     image: "/img/projects/portfolio.png",
     tags: ["Vite", "Tailwind", "Framer Motion"],
     github: "https://github.com/vitaliy65/new-portfolio",
-    live: "https://posvistak-portfolio.vercel.app/",
+    live: "https://posvistak-portfolio-old.vercel.app/",
   },
 ];

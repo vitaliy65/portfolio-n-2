@@ -28,7 +28,7 @@ export const skills = [
     category: "Tools",
     items: [
       { name: "Git", icon: "/img/git.svg" },
-      { name: "Cursor", icon: "/img/cursor.jpg" },
+      { name: "Cursor", icon: "/img/cursor.svg" },
       { name: "Figma", icon: "/img/figma.svg" },
       { name: "Vercel", icon: "/img/vercel.svg" },
     ] as SkillItem[],

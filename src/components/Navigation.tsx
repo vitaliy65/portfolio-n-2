@@ -5,7 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import MobileNavigation from "./MobileNavigation";
-import Link from "next/link";
+import { setTheme, Theme } from "@/store/slices/themeSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import {
+  Select,
+  SelectItem,
+  SelectContent,
+  SelectValue,
+  SelectTrigger,
+} from "./ui/select";
 
 // Основная функция компонента навигации
 export function Navigation() {
@@ -13,6 +21,8 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   // Состояние для открытия/закрытия мобильного меню
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const defaultTheme = useAppSelector((s) => s.theme.theme);
+  const dispatch = useAppDispatch();
 
   // Эффект для отслеживания прокрутки и изменения состояния isScrolled
   useEffect(() => {
@@ -64,9 +74,31 @@ export function Navigation() {
               className=" bg-transparent cursor-pointer"
             >
               <a href="/CV%20-%20Vitaliy%20Posvistak.pdf" download>
-                Скачать CV
+                Download CV
               </a>
             </Button>
+
+            <Select
+              onValueChange={(value) => {
+                dispatch(setTheme(value as Theme));
+              }}
+              defaultValue={defaultTheme}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Theme" />
+              </SelectTrigger>
+              <SelectContent>
+                {Object.values(Theme).map((theme) => (
+                  <SelectItem
+                    key={theme}
+                    value={theme}
+                    className="bg-background text-foreground/90 hover:bg-primary/10 font-sans text-base"
+                  >
+                    {theme}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {/* Кнопка открытия мобильного меню (отображается только на мобильных) */}

@@ -6,6 +6,7 @@ import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline";
 import { ContactSection } from "@/components/sections/Contact";
 import { Navigation } from "@/components/Navigation";
 import { FloatingElements } from "@/components/FloatingElements";
+import UnderImage from "@/components/underImage";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <ProjectsGrid />
         <ExperienceTimeline />
         <ContactSection />
+        <UnderImage />
       </div>
     </main>
   );
