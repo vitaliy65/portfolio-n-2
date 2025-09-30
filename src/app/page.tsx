@@ -11,7 +11,6 @@ import UnderImage from "@/components/underImage";
 export default function Home() {
   return (
     <main className="min-h-screen bg-background relative overflow-hidden">
-      <div className="mesh-gradient fixed inset-0 -z-10" />
       <FloatingElements />
       <Navigation />
 
