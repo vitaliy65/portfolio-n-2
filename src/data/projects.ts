@@ -23,8 +23,8 @@ export const projects = [
       "Beautiful weather app with animated backgrounds, forecasts, and location-based services.",
     image: "/img/projects/weather.png",
     tags: ["React", "API Integration", "Framer Motion"],
-    github: "#",
-    live: "#",
+    github: "https://github.com/vitaliy65/weather-app",
+    live: "https://pv-weather-app.vercel.app/",
   },
   {
     title: "Old Portfolio Website",
