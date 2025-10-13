@@ -27,6 +27,15 @@ export const projects = [
     live: "https://pv-weather-app.vercel.app/",
   },
   {
+    title: "Email builder app",
+    description:
+      "A website for quickly creating email cards without any knowledge of HTML or CSS, with quick conversion to HTML with styles.",
+    image: "/img/projects/email-card-builder.png",
+    tags: ["Next", "Tailwind", "dnd-kit", "shadcn", "motion"],
+    github: "https://github.com/vitaliy65/email-card-builder",
+    live: "https://email-card-builder.vercel.app/",
+  },
+  {
     title: "Old Portfolio Website",
     description:
       "Responsive portfolio site with smooth animations, dark mode, and optimized performance.",
