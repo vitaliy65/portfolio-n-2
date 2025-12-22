@@ -7,6 +7,7 @@ import { ContactSection } from "@/components/sections/Contact";
 import { Navigation } from "@/components/Navigation";
 import { FloatingElements } from "@/components/FloatingElements";
 import UnderImage from "@/components/underImage";
+import SnowfallClient from "@/components/elements/SnowfallClient";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
         <ContactSection />
         <UnderImage />
       </div>
+
+      <SnowfallClient />
     </main>
   );
 }

@@ -71,7 +71,7 @@ export function SkillsCarousel() {
                         transition={{ duration: 0.4, delay: index * 0.1 }}
                         className="text-center"
                       >
-                        <div className="md:w-32 md:h-32 h-16 w-16 bg-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4 relative">
+                        <div className="md:w-32 md:h-32 h-16 w-16 rounded-lg flex items-center justify-center mx-auto mb-4 relative">
                           <Image
                             className="text-2xl font-bold text-primary p-2"
                             fill
@@ -104,9 +104,8 @@ export function SkillsCarousel() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex ? "bg-primary" : "bg-muted"
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all ${index === currentIndex ? "bg-primary" : "bg-muted"
+                    }`}
                 />
               ))}
             </div>

@@ -5,15 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { navItems } from "@/data/navigation";
 import MobileNavigation from "./MobileNavigation";
-import { setTheme, Theme } from "@/store/slices/themeSlice";
-import { useAppDispatch, useAppSelector } from "@/store/hook";
-import {
-  Select,
-  SelectItem,
-  SelectContent,
-  SelectValue,
-  SelectTrigger,
-} from "./ui/select";
 
 // Основная функция компонента навигации
 export function Navigation() {
@@ -21,8 +12,6 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   // Состояние для открытия/закрытия мобильного меню
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const defaultTheme = useAppSelector((s) => s.theme.theme);
-  const dispatch = useAppDispatch();
 
   // Эффект для отслеживания прокрутки и изменения состояния isScrolled
   useEffect(() => {
@@ -40,9 +29,8 @@ export function Navigation() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-effect bg-black/5" : "" // Добавляем эффект "стекла" при прокрутке
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "glass-effect bg-black/5" : "" // Добавляем эффект "стекла" при прокрутке
+        }`}
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -70,35 +58,15 @@ export function Navigation() {
             {/* Кнопка для скачивания резюме */}
             <Button
               asChild
-              variant="outline"
-              className=" bg-transparent cursor-pointer"
+              variant="default"
+              className="cursor-pointer"
             >
               <a href="/CV%20-%20Vitaliy%20Posvistak.pdf" download>
                 Download CV
               </a>
             </Button>
 
-            <Select
-              onValueChange={(value) => {
-                dispatch(setTheme(value as Theme));
-              }}
-              defaultValue={defaultTheme}
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                {Object.values(Theme).map((theme) => (
-                  <SelectItem
-                    key={theme}
-                    value={theme}
-                    className="bg-background text-foreground/90 hover:bg-primary/10 font-sans text-base"
-                  >
-                    {theme}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            {/* <ThemeSelector /> */}
           </div>
 
           {/* Кнопка открытия мобильного меню (отображается только на мобильных) */}

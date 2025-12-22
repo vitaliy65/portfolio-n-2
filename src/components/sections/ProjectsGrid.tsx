@@ -81,7 +81,7 @@ export function ProjectsGrid() {
                       <h3 className="text-xl font-semibold mb-3">
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4 leading-relaxed">
+                      <p className="text-foreground mb-4 leading-relaxed">
                         {project.description}
                       </p>
                     </div>
@@ -91,8 +91,8 @@ export function ProjectsGrid() {
                       {project.tags.map((tag) => (
                         <Badge
                           key={tag}
-                          variant="secondary"
-                          className="text-xs "
+                          variant="card"
+                          className="text-xs"
                         >
                           {tag}
                         </Badge>

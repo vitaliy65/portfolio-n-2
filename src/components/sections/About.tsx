@@ -32,18 +32,19 @@ export function AboutSection() {
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ scale: 1.02, rotate: 3 }}
+              transition={{ duration: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 glass-effect hover:bg-neutral-800/50 transition-all duration-300 group h-full">
+              <Card className="p-8 glass-effect transition-all duration-300 group h-full">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mb-6 group-hover:bg-primary/30 transition-colors"
+                  className="w-16 h-16 rounded-full bg-black/20 flex items-center justify-center mb-6"
                 >
-                  <feature.icon className="w-8 h-8 text-primary" />
+                  <feature.icon className="w-8 h-8 text-[#6D8D7C]" />
                 </motion.div>
                 <h3 className="text-xl font-semibold mb-4">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-foreground leading-relaxed">
                   {feature.description}
                 </p>
               </Card>
@@ -69,7 +70,7 @@ export function AboutSection() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Badge variant="secondary" className="px-4 py-2 text-sm">
+                <Badge variant="default" className="px-4 py-2 text-sm">
                   {tech}
                 </Badge>
               </motion.div>
