@@ -4,8 +4,8 @@
 :root {
   --radius: 0.65rem;
 
-  --background: rgb(59,82,73);
-  --background-light: rgb(109,141,124);
+  --background: rgb(59, 82, 73);
+  --background-light: rgb(109, 141, 124);
   --foreground: rgb(255, 244, 244);
 
   --popover: rgb(247, 251, 253);
@@ -18,7 +18,7 @@
   --secondary-foreground: rgb(55, 60, 75);
 
   --muted: rgb(234, 242, 247);
-  --muted-foreground: rgb(130, 140, 155);
+  --muted-foreground: rgb(255, 244, 244);
 
   --accent: rgb(226, 238, 245);
   --accent-foreground: rgb(55, 60, 75);
@@ -56,18 +56,43 @@
   --mesh-2: rgba(255, 119, 198, 0.3);
   --mesh-3: rgba(120, 200, 255, 0.3);
 
-  --primary-badge: rgb(122,151,174);
+  --primary-badge: rgb(122, 151, 174);
   --secondary-badge: rgb(234, 242, 247);
   --destructive-badge: rgb(220, 80, 70);
 
-  --primary-red:rgb(102,6,38);
-  --primary-red-dark:rgb(73, 4, 25);
+  --primary-red: rgb(102, 6, 38);
+  --primary-red-dark: rgb(73, 4, 25);
 
-  --card: rgb(102,6,38);
-  --card-badge: rgb(59,82,73);
-  --card-badge-text: rgb(255,244,244);
-  --card-foreground: rgb(255,244,244);
-  --card-hover: rgb(122,16,48);
+  --card: rgb(102, 6, 38);
+  --card-badge: rgb(59, 82, 73);
+  --card-badge-text: rgb(255, 244, 244);
+  --card-foreground: rgb(255, 244, 244);
+  --card-hover: rgb(122, 16, 48);
+
+  --shadow-sm: inset 0 1px 2px #ffffff30,
+    /* top highlight */ 0 1px 2px #00000030,
+    /* dark shadow */ 0 2px 4px #00000015; /* soft shadow */
+
+  --shadow-md: inset 0 1px 2px #ffffff60,
+    /* top highlight */ 0 2px 4px #00000030,
+    /* dark shadow */ 0 4px 8px #00000015; /* soft shadow */
+
+  --shadow-lg: inset 0 1px 2px #ffffff90,
+    /* top highlight */ 0 4px 6px #00000030,
+    /* dark shadow */ 0 6px 10px #00000015; /* soft shadow */
+
+  /* ВПУКЛЫЕ ТЕНИ (concave, opposite) */
+  --shadow-sm-inset: inset 0 -1px 2px #00000030,
+    /* bottom dark inner */ 0 -1px 2px #ffffff30,
+    /* bottom highlight */ 0 -2px 4px #ffffff15; /* soft highlight */
+
+  --shadow-md-inset: inset 0 -1px 2px #00000060,
+    /* bottom dark inner */ 0 -2px 4px #ffffff30,
+    /* bottom highlight */ 0 -4px 8px #ffffff15; /* soft highlight */
+
+  --shadow-lg-inset: inset 0 -1px 2px #00000090,
+    /* bottom dark inner */ 0 -4px 6px #ffffff30,
+    /* bottom highlight */ 0 -6px 10px #ffffff15; /* soft highlight */
 }
 
 /* winter */
@@ -134,7 +159,6 @@
 
 } */
 
-
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -195,6 +219,41 @@
   --color-card-badge-text: var(--card-badge-text);
   --color-card-foreground: var(--card-foreground);
   --color-card-hover: var(--card-hover);
+
+  /* Shadow tokens for custom utility classes and themes */
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+
+  /* Inner (inset) shadow tokens */
+  --shadow-sm-inset: var(--shadow-sm-inset);
+  --shadow-md-inset: var(--shadow-md-inset);
+  --shadow-lg-inset: var(--shadow-lg-inset);
+}
+
+/* Shadow utility classes */
+.shadow-custom-sm {
+  box-shadow: var(--shadow-sm) !important;
+}
+
+.shadow-custom-md {
+  box-shadow: var(--shadow-md) !important;
+}
+
+.shadow-custom-lg {
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.shadow-custom-sm-inset {
+  box-shadow: var(--shadow-sm-inset) !important;
+}
+
+.shadow-custom-md-inset {
+  box-shadow: var(--shadow-md-inset) !important;
+}
+
+.shadow-custom-lg-inset {
+  box-shadow: var(--shadow-lg-inset) !important;
 }
 
 @layer base {

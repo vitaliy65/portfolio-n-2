@@ -129,7 +129,7 @@ export function ContactSection() {
                   href={info.href}
                   target="_blank"
                   whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg glass-effect hover:bg-card/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-card/50 transition-all duration-300 group"
                 >
                   <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                     <info.icon className="w-6 h-6 text-primary" />
@@ -150,7 +150,7 @@ export function ContactSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 glass-effect">
+            <Card className="p-8">
               <form className="space-y-6" onSubmit={handleSubmit} ref={formRef}>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>

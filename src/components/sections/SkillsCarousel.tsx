@@ -55,7 +55,7 @@ export function SkillsCarousel() {
                 transition={{ duration: 0.5 }}
                 className="w-full"
               >
-                <Card className="p-12 glass-effect">
+                <Card className="p-12">
                   <div
                     className={`w-full h-2 rounded-full bg-gradient-to-r ${skills[currentIndex].color} mb-8`}
                   />

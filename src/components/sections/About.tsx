@@ -36,7 +36,7 @@ export function AboutSection() {
               transition={{ duration: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="p-8 glass-effect transition-all duration-300 group h-full">
+              <Card className="p-8 transition-all duration-300 group h-full">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   className="w-16 h-16 rounded-full bg-black/20 flex items-center justify-center mb-6"

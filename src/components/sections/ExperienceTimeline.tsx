@@ -42,7 +42,7 @@ export function ExperienceTimeline() {
                 <div className="absolute w-4 h-4 bg-primary rounded-full border-4 border-background" />
 
                 <div className="md:ml-20 ml-10">
-                  <Card className="p-6 glass-effect hover:bg-card/50 transition-all duration-300">
+                  <Card className="p-6 hover:bg-card/50 transition-all duration-300">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
                         <h3 className="text-xl font-semibold">{exp.title}</h3>

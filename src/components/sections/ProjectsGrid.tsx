@@ -38,7 +38,7 @@ export function ProjectsGrid() {
               whileHover={{ y: -10 }}
               className="flex group h-full"
             >
-              <Card className="flex overflow-hidden glass-effect transition-all duration-300 h-full">
+              <Card className="flex overflow-hidden transition-all duration-300 h-full">
                 <div className="flex relative overflow-hidden w-full aspect-2/1">
                   <Image
                     src={project.image || "/placeholder.svg"}

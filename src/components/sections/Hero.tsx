@@ -52,6 +52,7 @@ export function HeroSection() {
           >
             <Button
               size="lg"
+              variant={"default"}
               className="animate-glow text-white cursor-pointer"
             >
               <a href="#projects">View My Work</a>
@@ -73,7 +74,7 @@ export function HeroSection() {
                 href={social.href}
                 whileHover={{ scale: 1.2, y: -2 }}
                 whileTap={{ scale: 0.9 }}
-                className="p-3 rounded-full glass-effect hover:bg-primary/20 transition-colors"
+                className="p-3 rounded-full hover:bg-primary/20 transition-colors"
                 target="_blank"
               >
                 <social.icon className="w-6 h-6" />
