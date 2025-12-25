@@ -16,7 +16,8 @@ export function HeroSection() {
           className="max-w-4xl mx-auto"
         >
           <motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6 gradient-text"
+            className="text-6xl md:text-8xl font-bold mb-6 text-gradient-middle text-shadow"
+            data-text="Posvistak Vitaliy"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}

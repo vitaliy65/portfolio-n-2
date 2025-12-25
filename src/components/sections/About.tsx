@@ -16,7 +16,19 @@ export function AboutSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+          {/* 
+            Ваша проблема: stroke (контур текста) появляется перед буквами, 
+            потому что псевдоэлемент ::before без opacity и с z-index: -10 
+            в пределах .text-shadow, но контейнер <p> (с 'relative') поверх. 
+            Браузер не всегда может гарантировать правильный порядок отрисовки 
+            псевдоэлементов ::before/::after внутри вложенных блоков, если вы вкладываете 
+            еще один элемент (<p>) ВНУТРИ <h2>. Наиболее корректно — сделать <h2> плоским и 
+            не вкладывать <p> внутрь, а текст вписать напрямую:
+          */}
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6 text-gradient-middle text-shadow"
+            data-text="About Me"
+          >
             About Me
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -61,16 +73,16 @@ export function AboutSection() {
         >
           <h3 className="text-2xl font-semibold mb-6">Technologies I Love</h3>
           <div className="flex flex-wrap justify-center gap-3">
-            {techStack.map((tech, index) => (
+            {techStack.map((tech) => (
               <motion.div
                 key={tech}
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.4 }}
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Badge variant="default" className="px-4 py-2 text-sm">
+                <Badge variant="default" className="px-4 py-2 text-sm cursor-default">
                   {tech}
                 </Badge>
               </motion.div>

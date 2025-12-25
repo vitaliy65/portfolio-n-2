@@ -49,9 +49,9 @@
 
   /* custom */
   --glass-border: rgba(255, 255, 255, 0.1);
-  --gradient-start: #70c0ff;
-  --gradient-middle: #a855f7;
-  --gradient-end: #ec4899;
+  --gradient-start: #691833;
+  --gradient-middle: #971c2d;
+  --gradient-end: #691833;
   --mesh-1: rgba(120, 119, 198, 0.3);
   --mesh-2: rgba(255, 119, 198, 0.3);
   --mesh-3: rgba(120, 200, 255, 0.3);
@@ -69,95 +69,30 @@
   --card-foreground: rgb(255, 244, 244);
   --card-hover: rgb(122, 16, 48);
 
-  --shadow-sm: inset 0 1px 2px #ffffff30,
-    /* top highlight */ 0 1px 2px #00000030,
-    /* dark shadow */ 0 2px 4px #00000015; /* soft shadow */
+  --textBorderSize: 2px;
+  --textBorderColor: #520b1d;
 
-  --shadow-md: inset 0 1px 2px #ffffff60,
-    /* top highlight */ 0 2px 4px #00000030,
-    /* dark shadow */ 0 4px 8px #00000015; /* soft shadow */
+  --shadow-sm: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030,
+    0 2px 4px #00000015;
 
-  --shadow-lg: inset 0 1px 2px #ffffff90,
-    /* top highlight */ 0 4px 6px #00000030,
-    /* dark shadow */ 0 6px 10px #00000015; /* soft shadow */
+  --shadow-md: inset 0 1px 2px #ffffff60, 0 2px 4px #00000030,
+    0 4px 8px #00000015;
+
+  --shadow-lg: inset 0 1px 2px #ffffff60, 0 4px 6px #00000030,
+    0 6px 10px #00000015;
 
   /* ВПУКЛЫЕ ТЕНИ (concave, opposite) */
-  --shadow-sm-inset: inset 0 -1px 2px #00000030,
-    /* bottom dark inner */ 0 -1px 2px #ffffff30,
-    /* bottom highlight */ 0 -2px 4px #ffffff15; /* soft highlight */
+  --shadow-sm-inset: inset 0 1px 2px #00000030, inset 0 2px 4px #00000030,
+    inset 0 -1px 2px #ffffff50;
 
-  --shadow-md-inset: inset 0 -1px 2px #00000060,
-    /* bottom dark inner */ 0 -2px 4px #ffffff30,
-    /* bottom highlight */ 0 -4px 8px #ffffff15; /* soft highlight */
+  --shadow-md-inset: inset 0 1px 2px #00000060, inset 0 4px 6px #00000030,
+    inset 0 -1px 2px #ffffff50;
 
-  --shadow-lg-inset: inset 0 -1px 2px #00000090,
-    /* bottom dark inner */ 0 -4px 6px #ffffff30,
-    /* bottom highlight */ 0 -6px 10px #ffffff15; /* soft highlight */
+  --shadow-lg-inset: inset 0 1px 2px #00000060, inset 0 6px 8px #00000030,
+    inset 0 -1px 2px #ffffff50;
 }
 
 /* winter */
-/* :root {
-  --radius: 0.65rem;
-
-  --background: rgb(59,82,73);
-  --foreground: rgb(255, 244, 244);
-
-  --card: rgb(102,6,38);
-  --card-foreground: rgb(255,244,244);
-
-  --popover: rgb(247, 251, 253);
-  --popover-foreground: rgb(38, 42, 55);
-
-  --primary: rgb(90, 160, 220);
-  --primary-foreground: rgb(248, 251, 253);
-
-  --secondary: rgb(234, 242, 247);
-  --secondary-foreground: rgb(55, 60, 75);
-
-  --muted: rgb(234, 242, 247);
-  --muted-foreground: rgb(130, 140, 155);
-
-  --accent: rgb(226, 238, 245);
-  --accent-foreground: rgb(55, 60, 75);
-
-  --destructive: rgb(220, 80, 70);
-
-  --border: rgb(220, 230, 238);
-  --input: rgb(220, 230, 238);
-  --ring: rgb(90, 160, 220);
-
-  --chart-1: rgb(90, 160, 220);
-  --chart-2: rgb(80, 170, 200);
-  --chart-3: rgb(95, 120, 180);
-  --chart-4: rgb(120, 190, 215);
-  --chart-5: rgb(150, 205, 230);
-
-  --sidebar: rgb(242, 248, 252);
-  --sidebar-foreground: rgb(38, 42, 55);
-
-  --sidebar-primary: rgb(90, 160, 220);
-  --sidebar-primary-foreground: rgb(248, 251, 253);
-
-  --sidebar-accent: rgb(230, 241, 247);
-  --sidebar-accent-foreground: rgb(55, 60, 75);
-
-  --sidebar-border: rgb(220, 230, 238);
-  --sidebar-ring: rgb(90, 160, 220);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --gradient-start: #70c0ff;
-  --gradient-middle: #a855f7;
-  --gradient-end: #ec4899;
-  --mesh-1: rgba(120, 119, 198, 0.3);
-  --mesh-2: rgba(255, 119, 198, 0.3);
-  --mesh-3: rgba(120, 200, 255, 0.3);
-
-  --primary-badge: rgb(90, 160, 220);
-  --secondary-badge: rgb(234, 242, 247);
-  --destructive-badge: rgb(220, 80, 70);
-
-  --card-hover: rgb(242, 248, 252);
-
-} */
 
 @theme inline {
   --font-sans: var(--font-geist-sans);
@@ -220,6 +155,9 @@
   --color-card-foreground: var(--card-foreground);
   --color-card-hover: var(--card-hover);
 
+  --textBorderSize: var(--textBorderSize);
+  --color-textBorderColor: var(--textBorderColor);
+
   /* Shadow tokens for custom utility classes and themes */
   --shadow-sm: var(--shadow-sm);
   --shadow-md: var(--shadow-md);
@@ -230,6 +168,32 @@
   --shadow-md-inset: var(--shadow-md-inset);
   --shadow-lg-inset: var(--shadow-lg-inset);
 }
+
+.text-shadow {
+  position: relative;
+  z-index: 1;
+}
+
+.text-shadow::before {
+  content: attr(data-text);
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-text-stroke: 10px #531228;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* .text-shadow::after {
+  content: "";
+  filter: drop-shadow(
+    0px 0px 0px var(--color-textBorderColor, rgba(255, 255, 255, 1))
+  );
+  scale: var(--textBorderSize);
+  @apply w-full h-full absolute left-1/2 -translate-x-1/2;
+} */
 
 /* Shadow utility classes */
 .shadow-custom-sm {

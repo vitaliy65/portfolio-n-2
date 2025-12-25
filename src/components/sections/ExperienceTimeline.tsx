@@ -16,7 +16,8 @@ export function ExperienceTimeline() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-middle text-shadow"
+            data-text="Experience">
             Experience
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
