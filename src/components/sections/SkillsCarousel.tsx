@@ -37,8 +37,8 @@ export function SkillsCarousel() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-middle text-shadow"
-            data-text="Skills & Expertise">
-            Skills & Expertise
+            data-text="Skills & Experience">
+            Skills & Experience
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit for building modern web experiences
