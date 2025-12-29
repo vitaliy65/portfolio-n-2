@@ -1,37 +1,38 @@
-export type SkillItem = {
+export type Skill = {
   name: string;
-  icon: string;
+  img: string;
 };
 
-export const skills = [
-  {
-    category: "Frontend",
-    items: [
-      { name: "React", icon: "/img/react.svg" },
-      { name: "Next.js", icon: "/img/nextjs.svg" },
-      { name: "TypeScript", icon: "/img/typescript.svg" },
-      { name: "Tailwind CSS", icon: "/img/tailwind.svg" },
-    ] as SkillItem[],
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    category: "Animation",
-    items: [
-      { name: "Framer Motion", icon: "/img/motion.svg" },
-      { name: "Tailwind animations", icon: "/img/tailwind.svg" },
-      { name: "CSS Animations", icon: "/img/css.svg" },
-      { name: "Lottie", icon: "/img/lottie.svg" },
-    ] as SkillItem[],
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    category: "Tools",
-    items: [
-      { name: "Git", icon: "/img/git.svg" },
-      { name: "Cursor", icon: "/img/cursor.svg" },
-      { name: "Figma", icon: "/img/figma.svg" },
-      { name: "Vercel", icon: "/img/vercel.svg" },
-    ] as SkillItem[],
-    color: "from-orange-500 to-red-500",
-  },
-];
+export type SkillCategory = {
+  id: string;
+  label: string;
+  icon: string;
+  skills: Skill[];
+};
+
+export const skillCategories1: SkillCategory = {
+  id: 'main',
+  label: 'Основной стек',
+  icon: '🧑‍💻',
+  skills: [
+    { name: 'React', img: '/img/react.svg' },
+    { name: 'Next.js', img: '/img/nextjs.svg' },
+    { name: 'TypeScript', img: '/img/typescript.svg' },
+    { name: 'Tailwind CSS', img: '/img/tailwind.svg' },
+    { name: 'Framer Motion', img: '/img/motion.svg' },
+    { name: 'Lottie', img: '/img/lottie.svg' }
+  ]
+};
+
+export const skillCategories2: SkillCategory = {
+  id: 'other',
+  label: 'Инструменты',
+  icon: '🛠️',
+  skills: [
+    { name: 'CSS', img: '/img/css.svg' },
+    { name: 'Git', img: '/img/git.svg' },
+    { name: 'Cursor', img: '/img/cursor.svg' },
+    { name: 'Figma', img: '/img/figma.svg' },
+    { name: 'Vercel', img: '/img/vercel.svg' }
+  ]
+};

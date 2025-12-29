@@ -62,6 +62,7 @@
 
   --primary-red: rgb(102, 6, 38);
   --primary-red-dark: rgb(73, 4, 25);
+  --primary-red-light: rgb(252, 231, 238);
 
   --card: rgb(102, 6, 38);
   --card-badge: rgb(59, 82, 73);
@@ -148,6 +149,7 @@
 
   --color-primary-red: var(--primary-red);
   --color-primary-red-dark: var(--primary-red-dark);
+  --color-primary-red-light: var(--primary-red-light);
 
   --color-card: var(--card);
   --color-card-badge: var(--card-badge);

@@ -19,7 +19,7 @@ export function ProjectsGrid() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-middle text-shadow"
+          <h2 className="inline-block px-4 py-2 bg-primary-red rounded-xl shadow-custom-md text-2xl mb-4"
             data-text="Featured Projects">
             Featured Projects
           </h2>

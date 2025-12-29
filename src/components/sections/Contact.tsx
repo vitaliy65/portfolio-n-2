@@ -104,7 +104,7 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-middle text-shadow"
+          <h2 className="inline-block px-4 py-2 bg-primary-red rounded-xl shadow-custom-md text-2xl mb-4"
             data-text="Let&apos;s Work Together">
             Let&apos;s Work Together
           </h2>
@@ -130,10 +130,10 @@ export function ContactSection() {
                   href={info.href}
                   target="_blank"
                   whileHover={{ x: 10 }}
-                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-card/50 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 rounded-lg hover:bg-background-light/50 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                    <info.icon className="w-6 h-6 text-primary" />
+                  <div className="w-12 h-12 rounded-full bg-primary-red/80 flex items-center justify-center transition-colors">
+                    <info.icon className="w-6 h-6" />
                   </div>
                   <div>
                     <p className="font-medium">{info.label}</p>
