@@ -44,8 +44,8 @@ export const aboutEducation = [
 ];
 
 export const aboutAchievements = [
-  { icon: "🧩", value: "15+", label: "Completed Projects" },
-  { icon: "⚛️", value: "React / Next.js", label: "Core Stack" },
-  { icon: "📚", value: "3+ Years", label: "Learning & Practice" },
-  { icon: "☕", value: "1000+", label: "Hours of Coding" },
+  { icon: "", value: "15+", label: "Completed Projects" },
+  { icon: "", value: "React / Next.js", label: "Core Stack" },
+  { icon: "", value: "3+ Years", label: "Learning & Practice" },
+  { icon: "", value: "1000+", label: "Hours of Coding" },
 ];

@@ -60,7 +60,7 @@ export function AboutSection() {
             >
               <div className="relative z-10">
                 <h3 className="text-2xl text-card-foreground mb-4">
-                  A bit about me 👨‍💻
+                  A bit about me
                 </h3>
                 <div className="space-y-4 text-card-foreground/80">
                   {aboutMain.description.map((desc, i) => (
@@ -104,7 +104,7 @@ export function AboutSection() {
               variants={itemVariants}
               className="md:col-span-6 bg-primary-red rounded-3xl p-8 shadow-custom-lg transition-all hover:scale-105"
             >
-              <h3 className="text-xl text-card-foreground mb-6">📚 Education</h3>
+              <h3 className="text-xl text-card-foreground mb-6">Education</h3>
               <div className="space-y-4">
                 {aboutEducation.map((item, idx) => (
                   <div className="flex gap-4" key={item.title}>
