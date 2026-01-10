@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Projects } from "@/components/projects"
 import { Contact } from "@/components/contact"
-import { Navigation } from "@/components/navigation"
+import { Navigation } from "@/components/Navigation"
 import { useLoading } from "@/hooks/useLoading"
 
 export default function Home() {
