@@ -74,7 +74,7 @@ export function Contact() {
           </div>
 
           <div className="pt-20 text-sm text-muted-foreground">
-            <p>© 2026 Frontend Developer. Crafted with care.</p>
+            <p>© 2026 Posvistak Vitaliy. Crafted with care.</p>
           </div>
         </div>
       </div>

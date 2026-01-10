@@ -104,16 +104,17 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-16 mb-20">
           <div ref={contentRef} className="space-y-6">
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              I&apos;m a frontend developer with a passion for creating accessible, performant interfaces that blend
-              thoughtful design with robust engineering.
+              I’m a frontend developer focused on building clean, responsive interfaces and writing predictable, maintainable code.
             </p>
+
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              Currently working at a leading tech company, I specialize in building component libraries and design
-              systems that scale across products and teams.
+              I work primarily with React, Next.js, TypeScript, and TailwindCSS, and have experience building real projects from scratch —
+              from layout and UI logic to API integration and deployment.
             </p>
+
             <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              My work sits at the intersection of design and development—ensuring experiences not only look exceptional
-              but are meticulously built for performance and usability.
+              I care about structure, clarity, and user experience, and I’m constantly improving my skills by shipping projects and
+              refining existing solutions.
             </p>
           </div>
 
