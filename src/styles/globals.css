@@ -1,106 +1,94 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
-  --radius: 0.65rem;
+  --background: oklch(0.12 0 0); /* Deep black */
+  --foreground: oklch(0.96 0.01 85); /* Warm milky white */
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.96 0.01 85);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.96 0.01 85);
+  --primary: oklch(0.96 0.01 85); /* Warm milky white */
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.24 0 0);
+  --secondary-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.58 0 0);
+  --accent: oklch(0.56 0.22 29); /* Accent red */
+  --accent-foreground: oklch(0.96 0.01 85);
+  --destructive: oklch(0.56 0.22 29);
+  --destructive-foreground: oklch(0.96 0.01 85);
+  --border: oklch(0.24 0 0);
+  --input: oklch(0.24 0 0);
+  --ring: oklch(0.56 0.22 29);
 
-  --background: rgb(59, 82, 73);
-  --background-light: rgb(109, 141, 124);
-  --foreground: rgb(255, 244, 244);
+  /* Added colorful accent colors for badges */
+  --accent-cyan: oklch(0.75 0.15 195);
+  --accent-yellow: oklch(0.85 0.15 85);
+  --accent-orange: oklch(0.7 0.18 50);
+  --accent-pink: oklch(0.7 0.2 350);
+  --accent-lime: oklch(0.8 0.18 130);
 
-  --popover: rgb(247, 251, 253);
-  --popover-foreground: rgb(38, 42, 55);
-
-  --primary: rgb(90, 160, 220);
-  --primary-foreground: rgb(248, 251, 253);
-
-  --secondary: rgb(234, 242, 247);
-  --secondary-foreground: rgb(55, 60, 75);
-
-  --muted: rgb(234, 242, 247);
-  --muted-foreground: rgb(255, 244, 244);
-
-  --accent: rgb(226, 238, 245);
-  --accent-foreground: rgb(55, 60, 75);
-
-  --destructive: rgb(220, 80, 70);
-
-  --border: rgb(220, 230, 238);
-  --input: rgb(220, 230, 238);
-  --ring: rgb(90, 160, 220);
-
-  --chart-1: rgb(90, 160, 220);
-  --chart-2: rgb(80, 170, 200);
-  --chart-3: rgb(95, 120, 180);
-  --chart-4: rgb(120, 190, 215);
-  --chart-5: rgb(150, 205, 230);
-
-  --sidebar: rgb(242, 248, 252);
-  --sidebar-foreground: rgb(38, 42, 55);
-
-  --sidebar-primary: rgb(90, 160, 220);
-  --sidebar-primary-foreground: rgb(248, 251, 253);
-
-  --sidebar-accent: rgb(230, 241, 247);
-  --sidebar-accent-foreground: rgb(55, 60, 75);
-
-  --sidebar-border: rgb(220, 230, 238);
-  --sidebar-ring: rgb(90, 160, 220);
-
-  /* custom */
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --gradient-start: #691833;
-  --gradient-middle: #971c2d;
-  --gradient-end: #691833;
-  --mesh-1: rgba(120, 119, 198, 0.3);
-  --mesh-2: rgba(255, 119, 198, 0.3);
-  --mesh-3: rgba(120, 200, 255, 0.3);
-
-  --primary-badge: rgb(122, 151, 174);
-  --secondary-badge: rgb(234, 242, 247);
-  --destructive-badge: rgb(220, 80, 70);
-
-  --primary-red: rgb(102, 6, 38);
-  --primary-red-dark: rgb(73, 4, 25);
-  --primary-red-light: rgb(252, 231, 238);
-
-  --card: rgb(102, 6, 38);
-  --card-badge: rgb(59, 82, 73);
-  --card-badge-text: rgb(255, 244, 244);
-  --card-foreground: rgb(255, 244, 244);
-  --card-hover: rgb(122, 16, 48);
-
-  --textBorderSize: 2px;
-  --textBorderColor: #520b1d;
-
-  --shadow-sm: inset 0 1px 2px #ffffff30, 0 1px 2px #00000030,
-    0 2px 4px #00000015;
-
-  --shadow-md: inset 0 1px 2px #ffffff60, 0 2px 4px #00000030,
-    0 4px 8px #00000015;
-
-  --shadow-lg: inset 0 1px 2px #ffffff60, 0 4px 6px #00000030,
-    0 6px 10px #00000015;
-
-  /* ВПУКЛЫЕ ТЕНИ (concave, opposite) */
-  --shadow-sm-inset: inset 0 1px 2px #00000030, inset 0 2px 4px #00000030,
-    inset 0 -1px 2px #ffffff50;
-
-  --shadow-md-inset: inset 0 1px 2px #00000060, inset 0 4px 6px #00000030,
-    inset 0 -1px 2px #ffffff50;
-
-  --shadow-lg-inset: inset 0 1px 2px #00000060, inset 0 6px 8px #00000030,
-    inset 0 -1px 2px #ffffff50;
+  --chart-1: oklch(0.56 0.22 29);
+  --chart-2: oklch(0.48 0 0);
+  --chart-3: oklch(0.38 0 0);
+  --chart-4: oklch(0.28 0 0);
+  --chart-5: oklch(0.18 0 0);
+  --radius: 1.25rem;
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.96 0.01 85);
+  --sidebar-primary: oklch(0.56 0.22 29);
+  --sidebar-primary-foreground: oklch(0.96 0.01 85);
+  --sidebar-accent: oklch(0.24 0 0);
+  --sidebar-accent-foreground: oklch(0.96 0.01 85);
+  --sidebar-border: oklch(0.24 0 0);
+  --sidebar-ring: oklch(0.56 0.22 29);
 }
 
-/* winter */
+.dark {
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.96 0.01 85);
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(0.96 0.01 85);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(0.96 0.01 85);
+  --primary: oklch(0.96 0.01 85);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.24 0 0);
+  --secondary-foreground: oklch(0.96 0.01 85);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.58 0 0);
+  --accent: oklch(0.56 0.22 29);
+  --accent-foreground: oklch(0.96 0.01 85);
+  --destructive: oklch(0.56 0.22 29);
+  --destructive-foreground: oklch(0.12 0 0);
+  --border: oklch(0.24 0 0);
+  --input: oklch(0.24 0 0);
+  --ring: oklch(0.56 0.22 29);
+  --chart-1: oklch(0.56 0.22 29);
+  --chart-2: oklch(0.48 0 0);
+  --chart-3: oklch(0.38 0 0);
+  --chart-4: oklch(0.28 0 0);
+  --chart-5: oklch(0.18 0 0);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.96 0.01 85);
+  --sidebar-primary: oklch(0.56 0.22 29);
+  --sidebar-primary-foreground: oklch(0.96 0.01 85);
+  --sidebar-accent: oklch(0.24 0 0);
+  --sidebar-accent-foreground: oklch(0.96 0.01 85);
+  --sidebar-border: oklch(0.24 0 0);
+  --sidebar-ring: oklch(0.56 0.22 29);
+}
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Inter", "Inter Fallback", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
   --color-background: var(--background);
-  --color-background-light: var(--background-light);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -133,93 +121,6 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-
-  /* Кастомные переменные для кастомных классов */
-  --color-glass-border: var(--glass-border);
-  --color-gradient-start: var(--gradient-start);
-  --color-gradient-middle: var(--gradient-middle);
-  --color-gradient-end: var(--gradient-end);
-  --color-mesh-1: var(--mesh-1);
-  --color-mesh-2: var(--mesh-2);
-  --color-mesh-3: var(--mesh-3);
-
-  --color-primary-badge: var(--primary-badge);
-  --color-secondary-badge: var(--secondary-badge);
-  --color-destructive-badge: var(--destructive-badge);
-
-  --color-primary-red: var(--primary-red);
-  --color-primary-red-dark: var(--primary-red-dark);
-  --color-primary-red-light: var(--primary-red-light);
-
-  --color-card: var(--card);
-  --color-card-badge: var(--card-badge);
-  --color-card-badge-text: var(--card-badge-text);
-  --color-card-foreground: var(--card-foreground);
-  --color-card-hover: var(--card-hover);
-
-  --textBorderSize: var(--textBorderSize);
-  --color-textBorderColor: var(--textBorderColor);
-
-  /* Shadow tokens for custom utility classes and themes */
-  --shadow-sm: var(--shadow-sm);
-  --shadow-md: var(--shadow-md);
-  --shadow-lg: var(--shadow-lg);
-
-  /* Inner (inset) shadow tokens */
-  --shadow-sm-inset: var(--shadow-sm-inset);
-  --shadow-md-inset: var(--shadow-md-inset);
-  --shadow-lg-inset: var(--shadow-lg-inset);
-}
-
-.text-shadow {
-  position: relative;
-  z-index: 1;
-}
-
-.text-shadow::before {
-  content: attr(data-text);
-  position: absolute;
-  width: 100%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-text-stroke: 10px #531228;
-  z-index: -10;
-  pointer-events: none;
-}
-
-/* .text-shadow::after {
-  content: "";
-  filter: drop-shadow(
-    0px 0px 0px var(--color-textBorderColor, rgba(255, 255, 255, 1))
-  );
-  scale: var(--textBorderSize);
-  @apply w-full h-full absolute left-1/2 -translate-x-1/2;
-} */
-
-/* Shadow utility classes */
-.shadow-custom-sm {
-  box-shadow: var(--shadow-sm) !important;
-}
-
-.shadow-custom-md {
-  box-shadow: var(--shadow-md) !important;
-}
-
-.shadow-custom-lg {
-  box-shadow: var(--shadow-lg) !important;
-}
-
-.shadow-custom-sm-inset {
-  box-shadow: var(--shadow-sm-inset) !important;
-}
-
-.shadow-custom-md-inset {
-  box-shadow: var(--shadow-md-inset) !important;
-}
-
-.shadow-custom-lg-inset {
-  box-shadow: var(--shadow-lg-inset) !important;
 }
 
 @layer base {
@@ -229,108 +130,37 @@
   body {
     @apply bg-background text-foreground;
   }
-}
 
-/* Анимации */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-@keyframes glow {
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(112, 192, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(112, 192, 255, 0.6);
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::-webkit-scrollbar-track {
+  background: oklch(0.12 0 0);
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+::-webkit-scrollbar-thumb {
+  background: oklch(0.24 0 0);
+  border-radius: 4px;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.32 0 0);
 }
 
-.animate-glow {
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.6s ease-out;
-}
-
-.animate-fade-in-scale {
-  animation: fadeInScale 0.5s ease-out;
-}
-
-/* Кастомные классы с поддержкой тем */
-.glass-effect {
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--color-glass-border, rgba(255, 255, 255, 0.1));
-}
-
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--color-gradient-start, #70c0ff),
-    var(--color-gradient-middle, #a855f7),
-    var(--color-gradient-end, #ec4899)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.mesh-gradient {
-  background: radial-gradient(
-      circle at 20% 80%,
-      var(--color-mesh-1, rgba(120, 119, 198, 0.3)) 0%,
-      transparent 50%
+/* Added grid background pattern for editorial design */
+.grid-background {
+  background-image: linear-gradient(
+      to right,
+      oklch(0.18 0 0) 1px,
+      transparent 1px
     ),
-    radial-gradient(
-      circle at 80% 20%,
-      var(--color-mesh-2, rgba(255, 119, 198, 0.3)) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 40%,
-      var(--color-mesh-3, rgba(120, 200, 255, 0.3)) 0%,
-      transparent 50%
-    );
-}
-
-/* Эффект наведения для карточек с поддержкой кастомной переменной цвета.
-   Используйте этот стиль для hover-эффекта карточек! */
-[data-slot="card"]:hover,
-.card-hover,
-[data-card]:hover {
-  background: var(--color-card-hover, #f5f5f5) !important;
-  transition: background 0.3s;
+    linear-gradient(to bottom, oklch(0.18 0 0) 1px, transparent 1px);
+  background-size: 40px 40px;
 }

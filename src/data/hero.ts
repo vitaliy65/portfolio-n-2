@@ -1,15 +1,13 @@
 export const heroData = {
   name: "Posvistak Vitaliy",
-  title: "Web Developer",
-  highlight: "Full Stack",
-  highlightDetail: "Development",
+  title: "Frontend Developer",
+  highlight: "frontend",
+  highlightDetail: "developer",
   description:
-    "I create modern web applications using React, Next.js, and TypeScript. Turning ideas into beautiful and functional products.",
+    "Building accessible, performant interfaces that blend thoughtful design with robust engineering",
   stats: [
-    { label: "Projects", value: "10+" },
-    { label: "Experience", value: "1 year" },
-    { label: "Technologies", value: "15+" },
-    { label: "Certifications", value: "6" },
+    { label: "Projects shipped", value: "+3" },
+    { label: "Avg. Lighthouse score", value: "95" },
   ],
   socials: [
     { type: "github", href: "https://github.com/vitaliy65" },
@@ -19,4 +17,12 @@ export const heroData = {
     },
     { type: "mail", href: "mailto:vitalii.posvistak@gmail.com" },
   ],
+  badges: [
+    { label: "REACT", color: "var(--accent-cyan)" },
+    { label: "TYPESCRIPT", color: "var(--accent-yellow)" },
+    { label: "NEXT.JS", color: "var(--accent-orange)" },
+    { label: "DESIGN SYSTEMS", color: "var(--accent-pink)" },
+    { label: "GSAP", color: "var(--accent-lime)" },
+  ],
+  photo: "/me-small.png",
 };

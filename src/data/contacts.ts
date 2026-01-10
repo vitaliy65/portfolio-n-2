@@ -1,22 +1,19 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 
-export const contactInfo = [
+export const socials = [
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/vitaliy65",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/vitaliy-posvistak-7887082b8/",
+  },
   {
     icon: Mail,
     label: "Email",
-    value: "vitalii.posvistak@gmail.com",
     href: "mailto:vitalii.posvistak@gmail.com",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+380 (995) 068 524",
-    href: "tel:+380995068624",
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "Ukraine, Kyiv Oblast, Bila Tserkva",
-    href: "https://maps.app.goo.gl/7ix3JTgj5fcmhkGSA",
   },
 ];
