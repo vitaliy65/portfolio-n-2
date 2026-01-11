@@ -164,3 +164,13 @@
     linear-gradient(to bottom, oklch(0.18 0 0) 1px, transparent 1px);
   background-size: 40px 40px;
 }
+
+.after-button::after {
+  content: "";
+  @apply absolute bg-accent h-[56px] w-[56px] right-0 top-0 translate-x-8;
+}
+
+.after-button-left::after {
+  content: "";
+  @apply absolute bg-accent h-[56px] w-[56px] left-0 top-0 -translate-x-8;
+}
