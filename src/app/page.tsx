@@ -11,6 +11,7 @@ export default function Home() {
 
   return (
     <main className={`relative bg-background transition-opacity duration-500 ${isLoading ? "opacity-0 h-0 overflow-hidden" : "opacity-100 min-h-screen"}`}>
+      <div className="absolute inset-0 opacity-45 grid-background" />
       <Navigation />
       <Hero />
       <About />

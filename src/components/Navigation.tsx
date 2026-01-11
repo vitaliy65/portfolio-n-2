@@ -42,8 +42,6 @@ export function Navigation() {
   }
 
   const handleDownloadCV = () => {
-    console.log("[v0] Download CV clicked")
-    // In production, this would download the actual CV file
     window.open("/CV - Vitaliy Posvistak.pdf", "_blank")
   }
 

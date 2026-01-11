@@ -78,8 +78,6 @@ export function Hero() {
 
   return (
     <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 lg:px-16">
-      <div className="absolute inset-0 grid-background opacity-30" />
-
       <div className="max-w-7xl w-full relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Main content */}

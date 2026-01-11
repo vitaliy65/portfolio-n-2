@@ -92,10 +92,8 @@ export function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="min-h-screen flex items-center px-6 lg:px-16 py-32 bg-background relative"
+      className="min-h-screen flex items-center px-6 lg:px-16 py-32 relative"
     >
-      <div className="absolute inset-0 grid-background opacity-20" />
-
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <h2 ref={titleRef} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-16 text-balance">
           about
