@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { ArrowUpRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ProjectThree } from "@/components/project-three"
+import useDevice from "@/hooks/useDevice"
 
 interface ProjectCardProps {
   title: string
@@ -19,6 +20,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, tags, image, link, index, accent, modelPath }: ProjectCardProps) {
   const isEven = index % 2 === 0
+  const { isDesktop } = useDevice();
 
   return (
     <Card
@@ -36,14 +38,16 @@ export function ProjectCard({ title, description, tags, image, link, index, acce
       )}
 
       <div className={cn("relative aspect-[4/3] lg:aspect-auto overflow-hidden", !isEven && "lg:col-start-2")}>
-        <div className="h-full lg:block z-30">
-          <ProjectThree modelPath={modelPath} />
-        </div>
+        {isDesktop && (
+          <div className="h-full lg:block z-30">
+            <ProjectThree modelPath={modelPath} />
+          </div>
+        )}
         <Image
           src={image || "/placeholder.svg"}
           alt={title}
           fill
-          className="object-cover duration-700 group-hover:opacity-0 group-hover:scale-90 transition-all"
+          className={`object-cover duration-700 ${isDesktop && "group-hover:opacity-0 group-hover:scale-90"} transition-all`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-60 lg:opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
 
