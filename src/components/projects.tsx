@@ -23,8 +23,8 @@ export function Projects() {
         },
         y: 60,
         opacity: 0,
-        duration: 1,
-        ease: "power3.out",
+        duration: 0.8,
+        ease: "power2.in",
       })
 
       const projects = projectsRef.current?.querySelectorAll(".project-card")
@@ -37,8 +37,8 @@ export function Projects() {
           },
           y: 80,
           opacity: 0,
-          duration: 1.2,
-          ease: "power3.out",
+          duration: 1,
+          ease: "power2.in",
         })
       })
     }, sectionRef)
