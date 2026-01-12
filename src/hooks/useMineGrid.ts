@@ -7,7 +7,6 @@ export function useMineGrid(cell: number, gap: number) {
     const [viewport, setViewport] = useState({ width: 1200, height: 800 });
     const [isReady, setIsReady] = useState(false);
     const gridRef = useRef<HTMLDivElement>(null);
-    const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
     // Calculate effective columns and rows based on viewport and cell/gap
     const rawCols = Math.floor(viewport.width / (cell + gap));
@@ -48,33 +47,21 @@ export function useMineGrid(cell: number, gap: number) {
     useEffect(() => {
         if (!isReady || !gridRef.current) return;
 
-        if (timelineRef.current) {
-            timelineRef.current.kill();
-        }
-
         const blocks = gridRef.current.querySelectorAll('.mine-block');
         const tl = gsap.timeline();
-        timelineRef.current = tl;
 
-        const centerCol = Math.floor(cols / 2);
-        const centerRow = Math.floor(rows / 2);
-
-        blocks.forEach((block, index) => {
-            const col = index % cols;
-            const row = Math.floor(index / cols);
-
-            // Manhattan distance from center for stagger effect
-            const distance = Math.abs(col - centerCol) + Math.abs(row - centerRow);
-            const delay = distance * 0.04; // 40ms per cell of distance
-
-            tl.to(block, {
-                duration: 0.6,
-                scale: 1,
-                opacity: 1,
-                y: 0,
-                ease: "back.out(1.2)",
-            }, delay).set(block, { scale: 1, opacity: 1 });
-        })
+        tl.to(blocks, {
+            duration: 0.6,
+            scale: 1,
+            opacity: 1,
+            y: 0,
+            ease: "back.out(1.2)",
+            stagger: {
+                grid: "auto",
+                amount: 1,
+                from: "center"
+            }
+        });
 
         return () => {
             tl.kill();
