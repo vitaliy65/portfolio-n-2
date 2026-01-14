@@ -35,7 +35,7 @@ export function Projects() {
           scrollTrigger: {
             trigger: "#projects-cards",
             start: "top center",
-            scrub: true,
+            scrub: 2,
             pin: true,
             end: `+=${numProjects * 1000}vh`
           }
