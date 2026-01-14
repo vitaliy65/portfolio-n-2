@@ -15,7 +15,7 @@ export function ProjectThree({ modelPath }: { modelPath: string }) {
   if (!isMounted) return null
 
   return (
-    <div className="absolute inset-0 -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
       <Canvas camera={{ position: [0, 15, 50], fov: 50 }}>
         <Environment preset="studio" />
         <LaptopModel modelPath={modelPath} />

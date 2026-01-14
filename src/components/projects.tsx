@@ -37,7 +37,7 @@ export function Projects() {
             start: "top center",
             scrub: true,
             pin: true,
-            end: `+=${numProjects * 1000}vh`,
+            end: `+=${numProjects * 1000}vh`
           }
         })
 
@@ -59,11 +59,12 @@ export function Projects() {
         tl.from(
           project,
           {
-            y: 160,
+            y: window.innerHeight / 2,
             opacity: 0,
             scale: 0.8,
-            duration: 0.5,
+            duration: 1,
             ease: "power2.in",
+            delay: 1
           }
         );
       })
@@ -85,11 +86,10 @@ export function Projects() {
           id="projects-cards"
           ref={projectsRef}
           className="relative"
-        // style={{ minHeight: `${projects.length * 100}vh` }}
         >
           {projects.map((project, index) => (
             <div
-              className="project-card absolute bottom-1/2 top-1/2 flex justify-center items-center"
+              className="project-card flex absolute bottom-1/2 top-1/2 justify-center items-center"
               key={project.title}
             >
               <ProjectCard
