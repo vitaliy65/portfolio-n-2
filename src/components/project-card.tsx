@@ -7,32 +7,50 @@ import { cn } from "@/lib/utils"
 import { ProjectThree } from "@/components/project-three"
 import useDevice from "@/hooks/useDevice"
 
-interface ProjectCardProps {
-  title: string
-  description: string
-  tags: string[]
-  image: string
-  link: string
-  index: number
-  accent?: string
-  modelPath: string
+import { HTMLAttributes } from "react";
+
+interface ProjectCardProps extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  link: string;
+  index: number;
+  accent?: string;
+  modelPath: string;
+  style?: React.CSSProperties;
 }
 
-export function ProjectCard({ title, description, tags, image, link, index, accent, modelPath }: ProjectCardProps) {
-  const isEven = index % 2 === 0
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  image,
+  link,
+  index,
+  accent,
+  modelPath,
+  className,
+  style,
+  ...rest
+}: ProjectCardProps) {
+  const isEven = index % 2 === 0;
   const { isDesktop } = useDevice();
 
   return (
     <Card
       className={cn(
-        "project-card group relative bg-card/50 backdrop-blur-sm border-border/50 rounded-[3rem] overflow-hidden hover:bg-card/80 transition-all duration-500",
-        "grid lg:grid-cols-2 gap-8",
+        "relative group bg-card rounded-3xl overflow-hidden transition-all min-h-[520px]",
+        "grid lg:grid-cols-2 gap-2 lg:gap-8",
         !isEven && "lg:grid-flow-dense",
+        className
       )}
+      style={style}
+      {...rest}
     >
       {accent && (
         <div
-          className="absolute top-0 left-0 right-0 h-2 transition-all duration-500 group-hover:h-3 z-10"
+          className="absolute top-0 left-0 right-0 h-2 transition-all group-hover:h-3 z-10"
           style={{ backgroundColor: accent }}
         />
       )}
@@ -40,7 +58,7 @@ export function ProjectCard({ title, description, tags, image, link, index, acce
       <div className={cn("relative aspect-[4/3] lg:aspect-auto overflow-hidden", !isEven && "lg:col-start-2")}>
         {isDesktop && (
           <div className="h-full lg:block z-30">
-            <ProjectThree modelPath={modelPath} />
+            {/* <ProjectThree modelPath={modelPath} /> */}
           </div>
         )}
         <Image
@@ -61,8 +79,8 @@ export function ProjectCard({ title, description, tags, image, link, index, acce
         )}
       </div>
 
-      <div className={cn("p-8 lg:p-12 flex flex-col justify-center", !isEven && "lg:col-start-1")}>
-        <div className="space-y-6">
+      <div className={cn("p-3 lg:p-12 flex flex-col justify-center", !isEven && "lg:col-start-1")}>
+        <div className="space-y-2 lg:space-y-6">
           <div className="flex items-start justify-between gap-4">
             <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance">{title}</h3>
             <a
@@ -76,7 +94,7 @@ export function ProjectCard({ title, description, tags, image, link, index, acce
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">{description}</p>
 
-          <div className="flex flex-wrap gap-2 pt-4">
+          <div className="hidden lg:flex flex-wrap gap-2 pt-4">
             {tags.map((tag, idx) => (
               <span
                 key={tag}

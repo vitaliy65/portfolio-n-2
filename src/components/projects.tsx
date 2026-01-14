@@ -27,19 +27,45 @@ export function Projects() {
         ease: "power2.in",
       })
 
-      const projects = projectsRef.current?.querySelectorAll(".project-card")
-      projects?.forEach((project) => {
-        gsap.from(project, {
+      const projectEls = gsap.utils.toArray<HTMLElement>(".project-card");
+      const numProjects = projectEls.length;
+
+      const tl = gsap
+        .timeline({
           scrollTrigger: {
-            trigger: project,
-            start: "top 95%",
-            toggleActions: "play none none reverse",
-          },
-          y: 80,
-          opacity: 0,
-          duration: 1,
-          ease: "power2.in",
+            trigger: "#projects-cards",
+            start: "top center",
+            scrub: true,
+            pin: true,
+            end: `+=${numProjects * 1000}vh`,
+          }
         })
+
+      projectEls?.forEach((project) => {
+        // -=-=-=--=-=-=- OLD ANIMATION -=-=-=--=-=-=-
+        // gsap.from(project, {
+        //   scrollTrigger: {
+        //     trigger: project,
+        //     start: "top bottom",
+        //     end: "top center",
+        //     scrub: true,
+        //   },
+        //   y: 160,
+        //   opacity: 0,
+        //   scale: 0.8,
+        //   duration: 0.5,
+        //   ease: "power2.in",
+        // })
+        tl.from(
+          project,
+          {
+            y: 160,
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.5,
+            ease: "power2.in",
+          }
+        );
       })
     }, sectionRef)
 
@@ -47,7 +73,7 @@ export function Projects() {
   }, [])
 
   return (
-    <section id="projects" ref={sectionRef} className="min-h-screen px-6 lg:px-16 py-32">
+    <section id="projects" ref={sectionRef} className="min-h-screen px-6 lg:px-16 py-32 mb-64">
       <div className="max-w-7xl mx-auto w-full">
         <h2 ref={titleRef} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-20 text-balance">
           selected
@@ -55,9 +81,23 @@ export function Projects() {
           <span className="text-muted-foreground italic">work</span>
         </h2>
 
-        <div ref={projectsRef} className="space-y-32">
+        <div
+          id="projects-cards"
+          ref={projectsRef}
+          className="relative"
+        // style={{ minHeight: `${projects.length * 100}vh` }}
+        >
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} {...project} index={index} modelPath={project.modelPath} />
+            <div
+              className="project-card absolute bottom-1/2 top-1/2 flex justify-center items-center"
+              key={project.title}
+            >
+              <ProjectCard
+                {...project}
+                index={index}
+                modelPath={project.modelPath}
+              />
+            </div>
           ))}
         </div>
       </div>
