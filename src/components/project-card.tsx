@@ -58,7 +58,7 @@ export function ProjectCard({
       <div className={cn("relative aspect-[4/3] lg:aspect-auto overflow-hidden", !isEven && "lg:col-start-2")}>
         {isDesktop && (
           <div className="h-full lg:block z-30">
-            {/* <ProjectThree modelPath={modelPath} /> */}
+            <ProjectThree modelPath={modelPath} />
           </div>
         )}
         <Image
