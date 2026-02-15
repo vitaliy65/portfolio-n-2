@@ -1,6 +1,6 @@
 import { useMineGrid } from "@/hooks/useMineGrid";
 import MineBlock from "./MineBlock";
-import MineGameButton from "../MineGameButton";
+import MineGameButton from "./MineGameButton";
 import { gsap } from "gsap"
 
 interface GameContainerProps {
