@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber"
 import { useState, useEffect } from "react"
 import { LaptopModel } from "./models/LaptopModel"
-import { Environment } from "@react-three/drei"
+import { Environment, Preload } from "@react-three/drei"
 
 export function ProjectThree({ modelPath }: { modelPath: string }) {
   const [isMounted, setIsMounted] = useState(false)
@@ -16,9 +16,10 @@ export function ProjectThree({ modelPath }: { modelPath: string }) {
 
   return (
     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-      <Canvas camera={{ position: [0, 15, 50], fov: 50 }}>
-        <Environment preset="studio" />
+      <Canvas camera={{ position: [0, 15, 50], fov: 50 }} dpr={[1, 1.5]} frameloop="demand" performance={{ min: 0.5 }}>
+        <Environment preset="studio" resolution={256} />
         <LaptopModel modelPath={modelPath} />
+        <Preload all />
       </Canvas>
     </div>
   )

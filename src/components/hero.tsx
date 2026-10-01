@@ -26,7 +26,7 @@ export function Hero() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .45 }} className="mt-10 flex flex-wrap gap-3">
             <Button size="lg" className="rounded-full bg-accent px-7 text-accent-foreground hover:bg-accent/90" onClick={() => scrollTo("projects")}>View work <ArrowUpRight /></Button>
-            <Button size="lg" variant="outline" className="rounded-full border-border/80 px-7" onClick={() => scrollTo("contact")}>Let's talk</Button>
+            <Button size="lg" variant="outline" className="rounded-full border-border/80 px-7" onClick={() => scrollTo("contact")}>Let&apos;s talk</Button>
           </motion.div>
           <div className="mt-16 flex gap-12 border-t border-border/70 pt-6">
             {heroData.stats.map((stat) => <div key={stat.label}><div className="text-3xl font-medium tracking-tight">{stat.value}</div><div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</div></div>)}

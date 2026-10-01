@@ -6,7 +6,6 @@ import { Contact } from "@/components/contact"
 import { Navigation } from "@/components/Navigation"
 import { useLoading } from "@/hooks/useLoading"
 import MineGameButton from "@/components/games/mineOres/MineGameButton"
-import { gsap } from "gsap"
 import { useState } from "react"
 import GameContainer from "@/components/games/mineOres/GameContainer"
 import { LoadingScreen } from "@/components/LoadingScreen"
@@ -15,13 +14,7 @@ export default function Home() {
   const { isLoading } = useLoading()
   const [animationFinished, setAnimationFinished] = useState(false);
 
-  const openGameHandler = () => {
-    gsap.to("#mainPage", {
-      xPercent: -100,
-      opacity: 0,
-      onComplete: () => setAnimationFinished(true)
-    })
-  }
+  const openGameHandler = () => setAnimationFinished(true)
 
   const closeGameHandler = () => {
     setAnimationFinished(false)
