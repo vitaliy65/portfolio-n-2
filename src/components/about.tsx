@@ -1,156 +1,43 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { motion } from "motion/react"
 import { Card } from "@/components/ui/card"
 import { AboutThree } from "@/components/about-three"
 import { skills } from "@/data/about"
 import Image from "next/image"
 
-gsap.registerPlugin(ScrollTrigger)
+const reveal = { hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0 } }
 
 export function About() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-  const cardsRef = useRef<HTMLDivElement>(null)
-  const photoRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-        },
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      })
-
-      gsap.from(contentRef.current, {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 80%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-        },
-        y: 40,
-        opacity: 0,
-        duration: 1,
-        delay: 0.2,
-        ease: "power3.out",
-      })
-
-      gsap.from(photoRef.current, {
-        scrollTrigger: {
-          trigger: photoRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        scale: 0.9,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-      })
-
-
-      const cards = cardsRef.current?.querySelectorAll(".skill-card")
-      if (cards && cards.length > 0) {
-        gsap.fromTo(
-          cards,
-          {
-            opacity: 0,
-            y: 60,
-          },
-          {
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: "top 95%",
-              end: "bottom 60%",
-              toggleActions: "play none none reverse",
-              immediateRender: false,
-            },
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power3.in",
-          },
-        )
-      }
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section
-      id="about"
-      ref={sectionRef}
-      className="min-h-screen flex items-center px-6 lg:px-16 py-32 relative"
-    >
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <h2 ref={titleRef} className="text-5xl md:text-7xl lg:text-8xl font-bold mb-16 text-balance">
-          about
-        </h2>
-
-        <div className="grid lg:grid-cols-2 gap-16 mb-20">
-          <div ref={contentRef} className="space-y-6">
-            <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              I’m a frontend developer focused on building clean, responsive interfaces and writing predictable, maintainable code.
-            </p>
-
-            <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              I work primarily with React, Next.js, TypeScript, and TailwindCSS, and have experience building real projects from scratch —
-              from layout and UI logic to API integration and deployment.
-            </p>
-
-            <p className="text-xl md:text-2xl leading-relaxed text-muted-foreground text-pretty">
-              I care about structure, clarity, and user experience, and I’m constantly improving my skills by shipping projects and
-              refining existing solutions.
-            </p>
-          </div>
-
-          <div ref={photoRef} className="relative">
-            <div className="aspect-square rounded-[3rem] bg-card border-2 border-border overflow-hidden">
-              <Image src="/me-small.png" alt="Workspace" className="w-full h-full object-cover select-none" draggable="false" width={1024} height={1024} />
-            </div>
-          </div>
+    <section id="about" className="relative flex min-h-screen items-center px-6 py-28 lg:px-16">
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
+        <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }} className="mb-14 text-5xl font-semibold tracking-[-0.06em] md:text-7xl lg:text-8xl">
+          about <span className="text-muted-foreground">the maker</span>
+        </motion.h2>
+        <div className="mb-20 grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal} transition={{ duration: 0.7, delay: 0.08 }} className="space-y-6">
+            <p className="max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl">I&apos;m a frontend developer focused on building clear, responsive interfaces and writing predictable, maintainable code.</p>
+            <p className="max-w-2xl text-xl leading-relaxed text-muted-foreground md:text-2xl">I work with React, Next.js, TypeScript, and TailwindCSS — taking projects from first layout to a thoughtful, shipped experience.</p>
+            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">Good structure is invisible. The details are not.</p>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }} className="relative overflow-hidden rounded-[2rem] border border-border bg-card">
+            <Image src="/me-small.png" alt="Vitaliy Posvistak at work" width={1024} height={1024} className="aspect-square h-full w-full object-cover" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-accent/20 via-transparent to-transparent" />
+          </motion.div>
         </div>
-
-        <div className="hidden lg:block mb-20">
-          <AboutThree />
-        </div>
-
-        <div ref={cardsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mb-16 hidden lg:block"><AboutThree /></div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={{ visible: { transition: { staggerChildren: 0.08 } } }} className="grid grid-cols-2 gap-3 lg:grid-cols-4">
           {skills.map((skill) => (
-            <Card
-              key={skill.category}
-              className="skill-card p-6 bg-card/50 backdrop-blur-sm border-border/50 rounded-3xl hover:bg-card/80 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
-            >
-              {/* Colored accent bar */}
-              <div
-                className="absolute top-0 left-0 w-full h-1 transition-all duration-300 group-hover:h-2"
-                style={{ backgroundColor: skill.color }}
-              />
-              <h3 className="text-sm font-semibold text-foreground mb-4 uppercase tracking-wider pt-2">
-                {skill.category}
-              </h3>
-              <ul className="space-y-2">
-                {skill.items.map((item) => (
-                  <li key={item} className="text-base text-muted-foreground">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+            <motion.div key={skill.category} variants={reveal} transition={{ duration: 0.55 }}>
+              <Card className="group relative h-full rounded-2xl border-border/60 bg-card/60 p-5 transition-colors hover:bg-card">
+                <div className="mb-5 h-1 w-10 rounded-full" style={{ backgroundColor: skill.color }} />
+                <h3 className="mb-4 text-sm font-medium text-foreground">{skill.category}</h3>
+                <ul className="space-y-2">{skill.items.map((item) => <li key={item} className="text-sm text-muted-foreground">{item}</li>)}</ul>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

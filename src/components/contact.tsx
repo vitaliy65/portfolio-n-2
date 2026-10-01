@@ -1,83 +1,22 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { motion } from "motion/react"
 import { Button } from "@/components/ui/button"
 import { socials } from "@/data/contacts"
 
-gsap.registerPlugin(ScrollTrigger)
-
 export function Contact() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(contentRef.current, {
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-        y: 80,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      })
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <section id="contact" ref={sectionRef} className="min-h-screen flex items-center px-6 lg:px-16 py-32">
-      <div className="max-w-7xl mx-auto w-full">
-        <div ref={contentRef} className="text-center space-y-12">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold text-balance leading-tight">
-            Let&apos;s build something
-            <br />
-            <span className="text-accent italic">exceptional</span> together
-          </h2>
-
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed text-pretty">
-            I&apos;m always interested in hearing about new projects, creative ideas, or opportunities to be part of your
-            vision.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
-            <Button
-              size="lg"
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-xl px-12 py-8 rounded-full"
-              asChild
-            >
-              <a href="mailto:hello@example.com">Start a Conversation</a>
-            </Button>
-          </div>
-
-          <div className="flex items-center justify-center gap-6 pt-12">
-            {socials.map((social) => {
-              const Icon = social.icon
-              return (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-4 rounded-full bg-secondary/50 text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                  aria-label={social.label}
-                >
-                  <Icon className="w-6 h-6" />
-                </a>
-              )
-            })}
-          </div>
-
-          <div className="pt-20 text-sm text-muted-foreground">
-            <p>© 2026 Posvistak Vitaliy. Crafted with care.</p>
-          </div>
+    <section id="contact" className="flex min-h-[80vh] items-center px-6 py-28 lg:px-16">
+      <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.25 }} transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }} className="mx-auto w-full max-w-7xl">
+        <div className="rounded-[2rem] border border-border bg-card/70 p-8 text-center md:p-16 lg:p-24">
+          <p className="mb-6 text-sm text-accent">Have a good brief?</p>
+          <h2 className="mx-auto max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.07em] md:text-7xl lg:text-8xl">Let&apos;s make it unmistakably yours.</h2>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">I&apos;m open to thoughtful collaborations, ambitious interfaces, and products that deserve a little more care.</p>
+          <Button size="lg" className="mt-10 rounded-full bg-accent px-8 py-6 text-base text-accent-foreground hover:bg-accent/90" asChild><a href="mailto:hello@example.com">Start a conversation</a></Button>
+          <div className="mt-12 flex items-center justify-center gap-3">{socials.map((social) => { const Icon = social.icon; return <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="rounded-full border border-border p-3 text-muted-foreground transition-colors hover:border-accent hover:text-accent"><Icon className="h-5 w-5" /></a> })}</div>
+          <p className="mt-16 text-xs text-muted-foreground">© 2026 Posvistak Vitaliy. Crafted with care.</p>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

@@ -4,32 +4,31 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.12 0 0); /* Deep black */
-  --foreground: oklch(0.96 0.01 85); /* Warm milky white */
-  --card: oklch(0.18 0 0);
-  --card-foreground: oklch(0.96 0.01 85);
-  --popover: oklch(0.16 0 0);
-  --popover-foreground: oklch(0.96 0.01 85);
-  --primary: oklch(0.96 0.01 85); /* Warm milky white */
-  --primary-foreground: oklch(0.12 0 0);
-  --secondary: oklch(0.24 0 0);
-  --secondary-foreground: oklch(0.96 0.01 85);
-  --muted: oklch(0.22 0 0);
-  --muted-foreground: oklch(0.58 0 0);
-  --accent: oklch(0.56 0.22 29); /* Accent red */
-  --accent-foreground: oklch(0.96 0.01 85);
-  --destructive: oklch(0.56 0.22 29);
+  --background: oklch(0.105 0.018 265);
+  --foreground: oklch(0.94 0.018 92);
+  --card: oklch(0.145 0.022 265);
+  --card-foreground: oklch(0.94 0.018 92);
+  --popover: oklch(0.16 0.025 265);
+  --popover-foreground: oklch(0.94 0.018 92);
+  --primary: oklch(0.94 0.018 92);
+  --primary-foreground: oklch(0.105 0.018 265);
+  --secondary: oklch(0.19 0.025 265);
+  --secondary-foreground: oklch(0.9 0.02 92);
+  --muted: oklch(0.17 0.022 265);
+  --muted-foreground: oklch(0.66 0.035 265);
+  --accent: oklch(0.76 0.16 78);
+  --accent-foreground: oklch(0.15 0.02 265);
+  --destructive: oklch(0.62 0.18 25);
   --destructive-foreground: oklch(0.96 0.01 85);
-  --border: oklch(0.24 0 0);
-  --input: oklch(0.24 0 0);
-  --ring: oklch(0.56 0.22 29);
+  --border: oklch(0.29 0.03 265 / 55%);
+  --input: oklch(0.29 0.03 265 / 55%);
+  --ring: oklch(0.76 0.16 78);
 
-  /* Added colorful accent colors for badges */
-  --accent-cyan: oklch(0.75 0.15 195);
-  --accent-yellow: oklch(0.85 0.15 85);
-  --accent-orange: oklch(0.7 0.18 50);
-  --accent-pink: oklch(0.7 0.2 350);
-  --accent-lime: oklch(0.8 0.18 130);
+  --accent-cyan: oklch(0.78 0.12 195);
+  --accent-yellow: oklch(0.83 0.15 85);
+  --accent-orange: oklch(0.72 0.17 52);
+  --accent-pink: oklch(0.72 0.16 350);
+  --accent-lime: oklch(0.8 0.16 130);
 
   --chart-1: oklch(0.56 0.22 29);
   --chart-2: oklch(0.48 0 0);
