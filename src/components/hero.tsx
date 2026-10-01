@@ -1,171 +1,45 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
+import { motion } from "motion/react"
+import { ArrowDown, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ArrowDown } from "lucide-react"
 import { heroData } from "@/data/hero"
 import Image from "next/image"
 
+const ease = [0.22, 1, 0.36, 1] as const
+
 export function Hero() {
-  const heroRef = useRef<HTMLDivElement>(null)
-  const titleRef = useRef<HTMLHeadingElement>(null)
-  const subtitleRef = useRef<HTMLParagraphElement>(null)
-  const ctaRef = useRef<HTMLDivElement>(null)
-  const badgesRef = useRef<HTMLDivElement>(null)
-  const metricsRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } })
-
-      tl.from(titleRef.current, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        delay: 0.3,
-      })
-        .from(
-          subtitleRef.current,
-          {
-            y: 50,
-            opacity: 0,
-            duration: 1,
-          },
-          "-=0.6",
-        )
-        .from(
-          ctaRef.current,
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-          },
-          "-=0.4",
-        )
-        .from(
-          badgesRef.current?.querySelectorAll(".badge") || [],
-          {
-            scale: 0,
-            opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: "back.out(1.7)",
-          },
-          "-=0.4",
-        )
-        .from(
-          metricsRef.current?.querySelectorAll(".metric") || [],
-          {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1,
-          },
-          "-=0.3",
-        )
-    }, heroRef)
-
-    return () => ctx.revert()
-  }, [])
-
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
+  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
 
   return (
-    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center px-6 lg:px-16">
-      <div className="max-w-7xl w-full relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Main content */}
-          <div className="space-y-8">
-            <h1
-              ref={titleRef}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold leading-none tracking-tight text-balance"
-            >
-              {heroData.highlight}
-              <br />
-              <span className="text-accent italic">{heroData.highlightDetail}</span>
-            </h1>
-
-            <p
-              ref={subtitleRef}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl leading-relaxed text-pretty"
-            >
-              {heroData.description}
-            </p>
-
-            <div ref={ctaRef} className="flex items-center gap-4 pt-4">
-              <Button
-                size="lg"
-                className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full"
-                onClick={scrollToProjects}
-              >
-                View Work
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="text-lg px-8 py-6 rounded-full border-2 bg-transparent"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Get in Touch
-              </Button>
-            </div>
-
-            <div ref={metricsRef} className="flex gap-8 pt-8">
-              {heroData.stats.map((stat, i) => (
-                <div className="metric" key={stat.label}>
-                  <div className="text-4xl font-bold text-foreground">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div ref={badgesRef} className="hidden lg:block relative">
-            <div className="relative aspect-square max-w-lg mx-auto">
-              {/* Main photo container */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-80 h-80 rounded-[3rem] bg-gradient-to-br from-card via-card/50 to-transparent border border-border/50 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-                  <Image src={heroData.photo} alt="Developer" className="w-full h-full object-cover select-none" draggable="false" width={1024} height={1024} />
-                </div>
-              </div>
-
-              {/* Floating badges */}
-              {heroData.badges.map((badge, i) => {
-                const badgePositions = [
-                  "absolute top-8 left-0 rotate-[-8deg]",
-                  "absolute top-24 right-8 rotate-[12deg]",
-                  "absolute bottom-32 left-4 rotate-[-15deg]",
-                  "absolute bottom-16 right-12 rotate-[8deg]",
-                  "absolute top-1/2 right-0 rotate-[18deg]",
-                ]
-                return (
-                  <div
-                    key={badge.label}
-                    className={`badge ${badgePositions[i] || ""} bg-[${badge.color}] text-black px-5 py-3 rounded-full font-bold text-sm shadow-lg`}
-                    style={{ backgroundColor: badge.color }}
-                  >
-                    {badge.label}
-                  </div>
-                )
-              })}
-            </div>
+    <section id="hero" className="relative flex min-h-[92vh] items-center px-6 py-24 lg:px-16">
+      <div className="mx-auto grid w-full max-w-7xl items-end gap-16 lg:grid-cols-[1.1fr_.9fr]">
+        <div>
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, ease }} className="mb-8 flex items-center gap-3 text-xs uppercase tracking-[.24em] text-muted-foreground">
+            <span className="h-2 w-2 rounded-full bg-accent" /> Available for selected projects
+          </motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 48 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: .08, ease }} className="max-w-5xl text-[clamp(4rem,10vw,9rem)] font-semibold leading-[.86] tracking-[-.08em]">
+            {heroData.highlight}<br /><span className="text-accent">{heroData.highlightDetail}</span>
+          </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8, delay: .35 }} className="mt-10 max-w-xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            {heroData.description}
+          </motion.p>
+          <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .45 }} className="mt-10 flex flex-wrap gap-3">
+            <Button size="lg" className="rounded-full bg-accent px-7 text-accent-foreground hover:bg-accent/90" onClick={() => scrollTo("projects")}>View work <ArrowUpRight /></Button>
+            <Button size="lg" variant="outline" className="rounded-full border-border/80 px-7" onClick={() => scrollTo("contact")}>Let's talk</Button>
+          </motion.div>
+          <div className="mt-16 flex gap-12 border-t border-border/70 pt-6">
+            {heroData.stats.map((stat) => <div key={stat.label}><div className="text-3xl font-medium tracking-tight">{stat.value}</div><div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{stat.label}</div></div>)}
           </div>
         </div>
+        <motion.div initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.1, delay: .2, ease }} className="relative mx-auto w-full max-w-md lg:mb-8">
+          <div className="aspect-[4/5] overflow-hidden rounded-[2rem] border border-border/80 bg-card shadow-2xl shadow-accent/10"><Image src={heroData.photo} alt="Vitaliy Posvistak" fill priority sizes="(max-width: 1024px) 90vw, 36vw" className="object-cover" /></div>
+          <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-background/90 px-5 py-4 backdrop-blur-xl"><div className="text-xs uppercase tracking-widest text-muted-foreground">Based in</div><div className="mt-1 font-medium">Ukraine · Working globally</div></div>
+        </motion.div>
       </div>
-
-      <button
-        onClick={scrollToProjects}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
-        aria-label="Scroll to projects"
-      >
-        <ArrowDown className="w-8 h-8" />
-      </button>
+      <button onClick={() => scrollTo("projects")} aria-label="Scroll to projects" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground transition-colors hover:text-accent"><ArrowDown className="h-5 w-5" /></button>
     </section>
   )
 }
+
+export const heroEase = ease
