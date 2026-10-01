@@ -12,7 +12,7 @@ export function Hero() {
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
 
   return (
-    <section id="hero" className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden px-6 py-20 lg:px-16 lg:py-24">
+    <section id="hero" className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden px-6 py-16 lg:px-16 lg:py-24">
       <div className="pointer-events-none absolute right-[8%] top-[12%] h-72 w-72 rounded-full bg-primary/10 blur-[120px]" />
       <div className="mx-auto grid w-full max-w-7xl items-center gap-14 lg:grid-cols-[1.15fr_.85fr]">
         <div>
@@ -20,7 +20,7 @@ export function Hero() {
             <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/40 text-primary"><Sparkles className="h-3.5 w-3.5" /></span>
             Available for selected projects
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 38 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .95, delay: .06, ease }} className="max-w-4xl text-[clamp(3.8rem,9.5vw,8.7rem)] font-semibold leading-[.86] tracking-[-.085em]">
+          <motion.h1 initial={{ opacity: 0, y: 38 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .95, delay: .06, ease }} className="max-w-4xl text-[clamp(3.8rem,9.5vw,8.7rem)] font-semibold leading-[.84] tracking-[-.095em]">
             {heroData.highlight}<br /><span className="text-primary">{heroData.highlightDetail}</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8, delay: .3 }} className="mt-9 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -38,7 +38,7 @@ export function Hero() {
           <div className="absolute -inset-5 rounded-[2.6rem] border border-primary/15" />
           <div className="absolute -inset-10 rounded-[3.5rem] border border-primary/10" />
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-border bg-card shadow-2xl shadow-black/30"><Image src={heroData.photo} alt="Vitaliy Posvistak" fill priority sizes="(max-width: 1024px) 82vw, 34vw" className="object-cover" /></div>
-          <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-card/90 px-5 py-4 shadow-xl backdrop-blur-xl"><div className="text-[10px] uppercase tracking-[.2em] text-muted-foreground">Based in</div><div className="mt-1 text-sm font-medium">Ukraine · Working globally</div></div>
+          <div className="absolute -bottom-5 -left-5 rounded-2xl border border-border bg-card/90 px-5 py-4 shadow-xl backdrop-blur-xl"><div className="text-[10px] uppercase tracking-[.2em] text-muted-foreground">Based in</div><div className="mt-1 text-sm font-medium">Ukraine <span className="text-primary">·</span> Working globally</div></div>
           <div className="absolute -right-4 top-7 rounded-full border border-primary/30 bg-background/90 px-4 py-2 text-[10px] uppercase tracking-[.2em] text-primary backdrop-blur-xl">Design · Code · Motion</div>
         </motion.div>
       </div>

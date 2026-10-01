@@ -10,13 +10,13 @@
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
-  --primary: oklch(0.78 0.16 156);
+  --primary: oklch(0.84 0.16 82);
   --primary-foreground: oklch(0.11 0.018 255);
   --secondary: oklch(0.19 0.025 255);
   --secondary-foreground: var(--foreground);
   --muted: oklch(0.17 0.022 255);
   --muted-foreground: oklch(0.68 0.025 255);
-  --accent: oklch(0.78 0.16 156);
+  --accent: oklch(0.84 0.16 82);
   --accent-foreground: oklch(0.11 0.018 255);
   --destructive: oklch(0.65 0.2 25);
   --destructive-foreground: white;
@@ -53,7 +53,7 @@
 @layer base {
   * { @apply border-border outline-ring/50; }
   html { scroll-behavior: smooth; }
-  body { @apply bg-background text-foreground antialiased; background-image: radial-gradient(circle at 76% 5%, oklch(0.5 0.14 156 / 10%), transparent 31rem), radial-gradient(circle at 8% 38%, oklch(0.3 0.09 245 / 18%), transparent 34rem); }
+  body { @apply bg-background text-foreground antialiased; background-image: radial-gradient(circle at 78% 8%, oklch(0.7 0.14 82 / 8%), transparent 28rem), radial-gradient(circle at 5% 42%, oklch(0.35 0.08 240 / 16%), transparent 32rem); }
   ::selection { background: var(--accent); color: var(--accent-foreground); }
 }
 
@@ -68,7 +68,7 @@
 @media (max-width: 640px) { .grid-background { background-size: 42px 42px; } }
 .dark { color-scheme: dark; }
 @layer utilities { .font-display { font-family: "Inter", system-ui, sans-serif; letter-spacing: -.075em; } }
-@utility container { margin-inline: auto; padding-inline: 1.5rem; }
-@media (min-width: 1024px) { @utility container { padding-inline: 3rem; } }
-@media (min-width: 1280px) { @utility container { max-width: 80rem; } }
+.container { margin-inline: auto; padding-inline: 1.5rem; }
+@media (min-width: 1024px) { .container { padding-inline: 3rem; } }
+@media (min-width: 1280px) { .container { max-width: 80rem; } }
 

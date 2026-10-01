@@ -56,8 +56,8 @@ export function Navigation() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg" : "bg-transparent",
+          "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+          isScrolled ? "border-b border-border/60 bg-background/75 shadow-2xl shadow-black/10 backdrop-blur-2xl" : "bg-transparent",
         )}
       >
         <div className="container mx-auto px-6 lg:px-12">
@@ -65,11 +65,10 @@ export function Navigation() {
             {/* Logo */}
             <button
               onClick={() => scrollToSection("hero")}
-              className="text-xl font-bold hover:text-primary transition-colors"
+              className="group flex items-center gap-2 text-sm font-semibold tracking-[-0.04em] transition-colors hover:text-primary"
             >
-              <span className="text-primary">{"<"}</span>
-              dev
-              <span className="text-primary">{"/>"}</span>
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/50 text-primary transition-transform group-hover:rotate-12">VP</span>
+              <span>Vitaliy Posvistak</span>
             </button>
 
             {/* Desktop Navigation */}
