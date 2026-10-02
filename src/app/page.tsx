@@ -14,7 +14,7 @@ export default function Home() {
       <Hero />
       <section className="marquee" aria-label="Skills and technologies">
         <div>
-          {[...heroData.badges, ...heroData.badges].map((badge, index) => (
+          {[...heroData.badges, ...heroData.badges, ...heroData.badges, ...heroData.badges, ...heroData.badges, ...heroData.badges].map((badge, index) => (
             <span key={`${badge.label}-${index}`}>
               {badge.label}<i aria-hidden="true">✳</i>
             </span>

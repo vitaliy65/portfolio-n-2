@@ -24,13 +24,13 @@ export function Hero() {
       </h1>
       <div className="hero-bottom">
         <p>{heroData.description}</p>
-        <div className="hero-portrait">
-          <Image src={heroData.photo} alt="Posvistak Vitaliy" fill priority sizes="(max-width: 700px) 100px, 150px" />
-        </div>
         <a className="round-link" href="#work" aria-label="Scroll to selected work">
           <MoveDownRight />
         </a>
         <span className="hero-index">01 <i /> 04</span>
+      </div>
+      <div className="hero-portrait ">
+        <Image src={heroData.photo} alt="Posvistak Vitaliy" fill className="border-none"/>
       </div>
     </motion.section>
   )

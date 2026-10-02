@@ -24,5 +24,5 @@ export const heroData = {
     { label: "DESIGN SYSTEMS", color: "var(--accent-pink)" },
     { label: "GSAP", color: "var(--accent-lime)" },
   ],
-  photo: "/me-small.png",
+  photo: "/me-small-new.png",
 };

@@ -31,7 +31,7 @@ export function ProjectCard({
     >
       <div className="project-visual-wrap">
         <a className="project-visual" href={link} target="_blank" rel="noreferrer" aria-label={`View ${title} project`}>
-          <Image src={image} alt={title} fill sizes="(max-width: 700px) 84vw, 62vw" className="project-image" />
+          <Image src={image} alt={title} fill />
           <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
           <span className="project-arrow"><ArrowUpRight /></span>
         </a>
