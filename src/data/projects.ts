@@ -22,7 +22,7 @@ export const projects = [
     description:
       "Developed a beautiful and interactive weather dashboard with real-time weather data, animated backgrounds that change based on weather conditions, multi-day and hourly forecasts, and location-based weather services using the browser's geolocation API.",
     tags: ["React", "API Integration", "Framer Motion"],
-    image: "/Weather.png",
+    image: "/Weather-app.png",
     link: "https://pv-weather-app.vercel.app/",
     accent: "var(--accent-orange)",
   },
